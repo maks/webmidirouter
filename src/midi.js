@@ -45,6 +45,11 @@ export class MIDIHandler {
     }
 
     handleMessage(msg, sourceInput) {
+        // Filter 0xF8 (Timing Clock) if enabled
+        if (this.ui.filterClockRoute && msg.data[0] === 0xF8) {
+            return;
+        }
+
         // Route to all outputs except the one corresponding to the source (if possible to determine)
         // We use name matching to avoid immediate feedback loops
 

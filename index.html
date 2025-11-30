@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,23 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
     <header>
         <h1>Web MIDI Router</h1>
     </header>
     <main>
+        <section id="settings">
+            <h2>Settings</h2>
+            <div class="setting-item">
+                <input type="checkbox" id="filter-clock-route" checked>
+                <label for="filter-clock-route">Filter MIDI Clock (Routing)</label>
+            </div>
+            <div class="setting-item">
+                <input type="checkbox" id="filter-clock-log" checked>
+                <label for="filter-clock-log">Filter MIDI Clock (Logging)</label>
+            </div>
+        </section>
         <section id="devices">
             <h2>Connected Devices</h2>
             <div id="device-list">
@@ -25,4 +38,5 @@
     </main>
     <script type="module" src="app.js"></script>
 </body>
+
 </html>

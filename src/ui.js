@@ -2,6 +2,16 @@ export class UIHandler {
     constructor() {
         this.deviceList = document.getElementById('device-list');
         this.messageLog = document.getElementById('message-log');
+        this.filterClockRouteCheckbox = document.getElementById('filter-clock-route');
+        this.filterClockLogCheckbox = document.getElementById('filter-clock-log');
+    }
+
+    get filterClockRoute() {
+        return this.filterClockRouteCheckbox.checked;
+    }
+
+    get filterClockLog() {
+        return this.filterClockLogCheckbox.checked;
     }
 
     log(text) {
@@ -13,6 +23,11 @@ export class UIHandler {
     }
 
     logMessage(msg, input) {
+        // Filter 0xF8 (Timing Clock) if enabled
+        if (this.filterClockLog && msg.data[0] === 0xF8) {
+            return;
+        }
+
         const entry = document.createElement('div');
         entry.className = 'log-entry';
         const data = Array.from(msg.data).map(b => '0x' + b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
