@@ -13,7 +13,13 @@ If you have Python installed, you can run:
 python3 -m http.server
 ```
 
-Then open [http://localhost:8000](http://localhost:8000) in your browser.
+By default, this listens on all interfaces. If you need to be explicit:
+
+```bash
+python3 -m http.server -b 0.0.0.0
+```
+
+Then open `http://[YOUR_IP_ADDRESS]:8000` on your other device (e.g., `http://192.168.1.150:8000`).
 
 ### Using Node.js
 If you have Node.js installed, you can use `npx`:
