@@ -1,0 +1,101 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --accent-color: #bb86fc;
+    --secondary-bg: #1e1e1e;
+    --border-color: #333;
+    --success-color: #03dac6;
+    --error-color: #cf6679;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h1 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#device-list, #message-log {
+    min-height: 50px;
+}
+
+#message-log {
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.log-entry {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.25rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-entry .timestamp {
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+.device-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.device-item:last-child {
+    border-bottom: none;
+}
+
+.device-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #555;
+}
+
+.device-status.connected {
+    background-color: var(--success-color);
+}
+
+@media (min-width: 768px) {
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}

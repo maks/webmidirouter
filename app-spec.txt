@@ -1,0 +1,16 @@
+I would like us to build a simple webapp that uses the webmidi api to route midi messages between connected midi devices. To start with I just to just route all messages on channels to all devices, ie. so that if we have 3 devices are connected and one of the devices sends a midi note on message, both of the other devices will receive it and vice versa. 
+
+Later on we will add a better user interface that will allow the user to choose which messages to route and which devices to route them to. but for now the user interface just needs to show the list of connected devices and allow the user to see a list of messages that are being sent and received.
+
+We want the user to be able to use our app on any device that supports the webmidi api including mobile devices. We want the app to be usable offline.
+
+We want our UI to be simple and minimalistic and it will be mostly used on mobile devices like phones and small tablets so we want the UI to be easily used on small touch screens.
+
+I want us to avoid using JS frameworks and libraries and use only vanilla JS and HTML and CSS. I also want to avoid the need to have any kind of build step. We want to use modern JS features and APIs like ES modules.
+
+I want the app to be as simple as possible. 
+
+We want to have our code in a git repository and we want to use github actions to build and deploy the app to github pages.
+
+We want to use semantic versioning for our releases.
+

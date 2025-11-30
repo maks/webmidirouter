@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web MIDI Router</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Web MIDI Router</h1>
+    </header>
+    <main>
+        <section id="devices">
+            <h2>Connected Devices</h2>
+            <div id="device-list">
+                <p>Waiting for MIDI access...</p>
+            </div>
+        </section>
+        <section id="log">
+            <h2>Message Log</h2>
+            <div id="message-log"></div>
+        </section>
+    </main>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
