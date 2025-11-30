@@ -45,6 +45,11 @@ export class MIDIHandler {
     }
 
     handleMessage(msg, sourceInput) {
+        // Check if input device is enabled
+        if (!this.ui.isDeviceEnabled(sourceInput.id)) {
+            return;
+        }
+
         // Filter 0xF8 (Timing Clock) if enabled
         if (this.ui.filterClockRoute && msg.data[0] === 0xF8) {
             return;
@@ -54,6 +59,11 @@ export class MIDIHandler {
         // We use name matching to avoid immediate feedback loops
 
         this.outputs.forEach(output => {
+            // Check if output device is enabled
+            if (!this.ui.isDeviceEnabled(output.id)) {
+                return;
+            }
+
             if (output.name !== sourceInput.name) {
                 try {
                     output.send(msg.data);

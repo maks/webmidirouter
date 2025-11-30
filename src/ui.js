@@ -4,6 +4,7 @@ export class UIHandler {
         this.messageLog = document.getElementById('message-log');
         this.filterClockRouteCheckbox = document.getElementById('filter-clock-route');
         this.filterClockLogCheckbox = document.getElementById('filter-clock-log');
+        this.disabledDeviceIds = new Set();
     }
 
     get filterClockRoute() {
@@ -12,6 +13,18 @@ export class UIHandler {
 
     get filterClockLog() {
         return this.filterClockLogCheckbox.checked;
+    }
+
+    isDeviceEnabled(id) {
+        return !this.disabledDeviceIds.has(id);
+    }
+
+    toggleDevice(id, enabled) {
+        if (enabled) {
+            this.disabledDeviceIds.delete(id);
+        } else {
+            this.disabledDeviceIds.add(id);
+        }
     }
 
     log(text) {
@@ -64,6 +77,17 @@ export class UIHandler {
                 devices.forEach(device => {
                     const div = document.createElement('div');
                     div.className = 'device-item';
+
+                    // Checkbox for enabling/disabling device
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.checked = this.isDeviceEnabled(device.id);
+                    checkbox.style.marginRight = '10px';
+                    checkbox.addEventListener('change', (e) => {
+                        this.toggleDevice(device.id, e.target.checked);
+                    });
+                    div.appendChild(checkbox);
+
                     const status = document.createElement('span');
                     status.className = `device-status ${device.state === 'connected' ? 'connected' : ''}`;
                     div.appendChild(status);
